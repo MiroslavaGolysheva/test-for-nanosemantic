@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Chat() {
 
-    const [list, setList] = useState([{"text" : resJson.result.text.value, sending : "bot", id: uuidv4()}]);
+    const [list, setList] = useState([]);
     const [text, setText] = useState(''); 
     const messagesEndRef = useRef(null)
 
@@ -52,7 +52,7 @@ export default function Chat() {
  
     useEffect(() => { 
         const list = JSON.parse(localStorage.getItem('list')) 
-        const listitem = list != null ? list : []
+        const listitem = list != null ? list : [{"text" : "Здравствуйте!", sending : "bot", id: uuidv4()}]
         setList(listitem);  
     }, []);
 
